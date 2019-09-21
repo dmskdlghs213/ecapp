@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use App\CartItem;
 use App\User;
+use App\Transaction;
 use App\Mail\Buy;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 
-use App\Transaction;
 use Illuminate\Support\Facades\Mail;
 
 class BuyController extends Controller
@@ -38,28 +39,55 @@ class BuyController extends Controller
     public function store(Request $request)
     {
         if ($request->has('post')) {
-            Mail::to(Auth::user()->email)->send(new Buy());
+            // Mail::to(Auth::user()->email)->send(new Buy());
 
-            //　カートアイテムからuser_idを紐づけてfindall()。どのユーザーがどの商品を何個購入したかをTransactionテーブルに突っ込む
+            // $transaction = DB::table('transaction')->insert([
+
+            //     'user_id' => Auth::id(),
+            //     'items_id' => $request('post')->id(),
+
+            // ]);
+
+            Auth::user()->update(
+                [
+                    'postalcode' => request('postalcode'),
+                    'region' => request('region'),
+                    'address' => request('addressline'),
+                    'phonenumber' => request('phonenumber'),
+                ]
+            );
+
+
+            //カートに入っているアイテムIDをrequestで取得して変数に格納
+            $itemnumbers = request('cart_item_id');
+
+            //カートに入っているアイテムの個数をrequestで取得して変数に格納
+            $itemmounts = request('quantity');
+
+            //配列から一件づつ取得するため繰り返し処理
+            foreach($itemmounts as $itemmount){
+                $quantity = $itemmount;
+            }
+
+            // order_idの割り当て
+            $transactions = request('order_id');
+
+            foreach($transactions as $transaction){
+                $order_id = $transaction;
+            }
+
+
+            foreach ($itemnumbers as $itemnumber) {
+                $item_id = $itemnumber;
+                $tr = new Transaction();
+                $tr->order_Id = $order_id;
+                $tr->user_id = Auth::id();
+                $tr->item_id = $item_id;
+                $tr->quantity = $quantity;
+                $tr->save();
+            }
+
             
-
-            // Auth::updateOnCreate(
-            //     [
-            //         'postalcode' => 'postalcode',
-            //         'region' => 'region',
-            //         'address' => 'addressline',
-            //         'phonenumber' => 'phonenumber',    
-            //     ]
-            //     );
-
-
-            // $transaction = new Transaction();
-            // $transaction->order_id++;
-            // $transaction->user_id = Auth::id();
-            // $transaction->item_id = CartItem::select('item_id')
-            // ->where('user_id',Auth::id())->get();
-            // $transaction->quantity = $request->post('quantity');
-            // $transaction->save();
 
             CartItem::where('user_id', Auth::id())->delete();
 
@@ -67,6 +95,5 @@ class BuyController extends Controller
         }
         $request->flash();
         return $this->index();
-
     }
 }

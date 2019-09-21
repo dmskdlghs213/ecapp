@@ -8,5 +8,7 @@ class Transaction extends Model
 {
     public $incrementing = false;
 
-    protected $fillable = ['order_id', 'user_id', 'item_id', 'quantity'];
+    protected $table = 'transaction';
+    protected $guarded = array('id');
+    // protected $fillable = ['order_id','user_id', 'item_id', 'quantity'];
 }

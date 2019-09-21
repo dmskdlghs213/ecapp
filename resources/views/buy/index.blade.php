@@ -66,7 +66,7 @@
                                 <p class="form-control-static">{{ old('phonenumber')}}</p>
                                 <input id="phonenumber" type="hidden" name="phonenumber" value="{{ old('phonenumber') }}">
                                 @else
-                                <input id="addressline1" type="text" class="form-control" name="addressline1" value="{{ old('addressline1') }}">
+                                <input id="phonenumber" type="text" class="form-control" name="phonenumber" value="{{ old('phonenumber') }}">
                                 @endif
                             </div>
                         </div>
@@ -74,13 +74,15 @@
                             <div class="card">
                                 @foreach($cartitems as $cartitem)
                                 <div class="card-header">
-                                    {{ $cartitem->name }}
+                                    <input type="hidden" name="cart_item_id[]" value="{{ $cartitem->item_id }}">
+                                    <a> {{ $cartitem->name }}</a>
                                 </div>
                                 <div class="card-body">
                                     <div>
                                         {{ $cartitem->amount }}円
                                     </div>
                                     <div>
+                                        <input type="hidden"name="quantity[]"value="{{ $cartitem->quantity }}">
                                         {{ $cartitem->quantity }}個
                                     </div>
                                 </div>
@@ -89,6 +91,7 @@
                             </div>
                             <div class="card-footer">
                                 <p>合計金額</p>
+                                <input type="hidden"name="order_id[]"value="{{ $cartitem->id }}">
                                 {{ $subtotal }} 円
                             </div>
                         </div>
@@ -96,7 +99,10 @@
                             <div class="form-row">
                                 <div class="col-md-8">
                                     @if(Request::has('confirm'))
-                                    <button type="submit" class="btn btn-primary" name="post">注文を確定する</button>
+                                    <form class="cartitem" method="post" label="order">
+                                        <a href="/item/{{ $cartitem->id }}"></a>
+                                        <button type="submit" class="btn btn-primary" name="post">注文を確定する</button>
+                                    </form>
                                     <button type="submit" class="btn btn-default" name="back">修正する</button>
                                     @else
                                     <button type="submit" class="btn btn-primary" name="confirm">入力内容を確認する</button>

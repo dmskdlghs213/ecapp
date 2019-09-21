@@ -14,7 +14,7 @@
             <div class="card">
                 @foreach ($cartitems as $cartitem)
                 <div class="card-header">
-                    <a href="/item/{{ $cartitem->id }}">{{ $cartitem->name }}</a>
+                    <a type="hidden" href="/cartitem/{{ $cartitem->item_id }}">{{ $cartitem->name }}</a>
                 </div>
                 <div class="card-body">
                     <div>

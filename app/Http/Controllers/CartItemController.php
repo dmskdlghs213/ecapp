@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\CartItem;
+use App\Item;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -66,9 +67,10 @@ class CartItemController extends Controller
      * @param  \App\CartItem  $cartItem
      * @return \Illuminate\Http\Response
      */
-    public function show(CartItem $cartItem)
+    public function show(CartItem $cartItem,Item $item)
     {
-        //
+
+        // return view('item/show',['item' => $item]);
     }
 
     /**

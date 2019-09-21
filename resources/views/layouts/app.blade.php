@@ -75,6 +75,11 @@
                                 </div>
                             </li>
                         @endguest
+
+                        <li class="nav-item">
+                            <a href="/transaction"class="nav-link">購入履歴</a>
+                            </li>
+                        </li>
                     </ul>
                 </div>
             </div>
