@@ -46,7 +46,7 @@ class BuyController extends Controller
             //     'user_id' => Auth::id(),
             //     'items_id' => $request('post')->id(),
 
-            // ]);
+            // ]); 
 
             Auth::user()->update(
                 [

@@ -9,8 +9,6 @@
 
 <style>
 
-
-
 </style>
 
 <div class="container">
@@ -19,8 +17,15 @@
             <div class="card" style="height:300px;background-image:url('/img/omlet.jpg');background-repeat: no-repeat;background-size:contain;">
                 <h2 style="text-align:center;">洋食専門店</h2>
             </div>
-
         </div>
+
+    </div>
+    <div class="test">
+
+    <!-- 画像表示パスのサンプル -->
+        <!-- @foreach($disks as $disk)
+        <img src="https://imagebacket.s3-ap-northeast-1.amazonaws.com/{{ $disk }}" alt="">
+        @endforeach -->
 
     </div>
     <div class="row justify-content-left">
@@ -29,12 +34,11 @@
             <div class="card">
                 <div class="card-header">
                     <a href="/item/{{ $item->id }}">{{ $item->name }}</a>
-
                 </div>
                 <div class="card-body">
-
                     {{ $item->amount }}
                 </div>
+                <img src="https://imagebacket.s3-ap-northeast-1.amazonaws.com/{{ $item->image_path }}" alt="">
                 @auth
                 <form action="cartitem" method="post" class="form-inline m-1">
                     {{ csrf_field() }}

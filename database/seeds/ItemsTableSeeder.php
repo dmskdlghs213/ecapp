@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Storage;
 
 class ItemsTableSeeder extends Seeder
 {
@@ -11,27 +12,41 @@ class ItemsTableSeeder extends Seeder
      */
     public function run()
     {
+        // $disks = Storage::disk('s3')->files('ec_image');
+
+        // foreach ($disks as $disk) {
+        //     $image = $disk;
+        //     print_r("--------");
+        //     print_r($image);
+        // }
+
+
         DB::table('items')->delete();
         $item_seeds = [
             [
                 'name' => 'オムライス',
                 'amount' => '900',
+                'image_path' => 'ec_image/s_KzWuSBv0T2KDssB4OanoMw.jpg',
             ],
             [
                 'name' => 'デミグラスオムライス',
                 'amount' => '700',
+                'image_path' => 'ec_image/s_rJw4lTn6RVeSlC5dUHijQw.jpg',
             ],
             [
                 'name' => 'チーズオムライス',
                 'amount' => '900',
+                'image_path' => 'ec_image/s_uQla7QimTiCRuxXYXj6XFA.jpg',
             ],
             [
                 'name' => 'ハンバーグオムライス',
                 'amount' => '800',
+                'image_path' => 'ec_image/s_z7V2s5hgSbeV1xdECKMeAw.jpg',
             ],
             [
                 'name' => 'ミートソースオムライス',
                 'amount' => '700',
+    
             ],
             [
                 'name' => 'トマトソースオムライス',
@@ -76,7 +91,7 @@ class ItemsTableSeeder extends Seeder
             [
                 'name' => 'かにのクリームソースオムライス',
                 'amount' => '1300',
-            ], 
+            ],
             [
                 'name' => 'クリーム＆トマトソースオムライス',
                 'amount' => '1240',
