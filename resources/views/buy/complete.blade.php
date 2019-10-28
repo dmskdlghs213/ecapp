@@ -1,8 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+
+<link rel="stylesheet" href="/css/buyindex.css">
+
 <div class="container">
-    <div class="row justify-content-center" style="margin-bottom:10px;">
+    <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-body">

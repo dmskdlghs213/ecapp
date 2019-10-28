@@ -8,13 +8,16 @@
 </div>
 @endif
 
+<link rel="stylesheet" href="/css/cartindex.css">
+
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
                 @foreach ($cartitems as $cartitem)
                 <div class="card-header">
-                    <a type="hidden" href="/cartitem/{{ $cartitem->item_id }}">{{ $cartitem->name }}</a>
+                    <a type="hidden" href="#" action="/cartitem/{{ $cartitem->item_id }}">{{ $cartitem->name }}</a>
                 </div>
                 <div class="card-body">
                     <div>
@@ -55,14 +58,18 @@
                     <div>
                         {{ $subtotal }}円
                     </div>
-                    <div>
-                        <a class="btn btn-primary" href="/buy" role="button">
-                            レジに進む
-                        </a>
-                    </div>
+
+                    @if(!empty($subtotal))
+                    <a id="cash" type="cash" class="btn btn-primary" href="/buy" role="button">レジに進む</a>
+                    @else
+                    <a id="cash" type="cash" class="btn btn-primary" href="/" role="button">商品一覧に戻る</a>
+                    @endif
+
+
                 </div>
             </div>
         </div>
     </div>
+
 </div>
 @endsection
