@@ -14,7 +14,7 @@
 Route::get('/', 'ItemController@index');
 
 #商品詳細ページの表示
-Route::get('/item/{item}', 'ItemController@show');
+Route::get('/item/{item}', 'ItemController@item_detail');
 
 #購入履歴ページ
 Route::get('/transaction','TransactionController@index');
@@ -32,17 +32,13 @@ Route::get('/cartitem/{item}', 'ItemController@show');
 #item詳細画面からカートへ追加
 Route::post('/cartitem/cartitem','CartItemController@store');
 
-
-
-
-
-
 #カートの中身の情報を変更する
 Route::put('/cartitem/{cartItem}', 'CartItemController@update');
 Route::delete('/cartitem/{cartItem}', 'CartItemController@destroy');
 
 #購入画面の表示
 Route::get('/buy', 'BuyController@index');
+
 
 #購入画面の保存
 Route::post('/buy', 'BuyController@store');
