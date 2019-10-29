@@ -49,24 +49,7 @@ class ItemController extends Controller
             }
         }
 
-        // if ($request->has('standard')) {
-        //     $items = Item::where('name', 'like', '%' . $request->get('standard') . '%')->paginate(15);
-        // }
-
-        // if ($request->has('western')) {
-        //     $items = Item::where('name', 'like', '%' . $request->get('western') . '%')->paginate(15);
-        // }
-
-        // if ($request->has('japan')) {
-        //     $items = Item::where('name', 'like', '%' . $request->get('japan') . '%')->paginate(15);
-        // }
-
-        // if ($request->has('source')) {
-        //     $items = Item::where('name', 'like', '%' . $request->get('source') . '%')->paginate(15);
-        // } else {
-        //     $items = Item::paginate(15);
-        // }
-
+       
         // $disks = Storage::disk('s3')->files('ec_image');
         // if (!empty($disks)) {
         //     $test = "S3と繋がってます";

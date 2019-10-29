@@ -41,14 +41,7 @@ class BuyController extends Controller
     public function store(Request $request)
     {
         if ($request->has('post')) {
-            // Mail::to(Auth::user()->email)->send(new Buy());
-
-            // $transaction = DB::table('transaction')->insert([
-
-            //     'user_id' => Auth::id(),
-            //     'items_id' => $request('post')->id(),
-
-            // ]); 
+            Mail::to(Auth::user()->email)->send(new Buy());
 
             Auth::user()->update(
                 [
@@ -58,7 +51,6 @@ class BuyController extends Controller
                     'phonenumber' => request('phonenumber'),
                 ]
             );
-
 
             //カートに入っているアイテムIDをrequestで取得して変数に格納
             $itemnumbers = request('cart_item_id');
@@ -78,7 +70,6 @@ class BuyController extends Controller
                 $order_id = $transaction;
             }
 
-
             foreach ($itemnumbers as $itemnumber) {
                 $item_id = $itemnumber;
                 $tr = new Transaction();
@@ -89,7 +80,6 @@ class BuyController extends Controller
                 $tr->save();
             }
 
-
             CartItem::where('user_id', Auth::id())->delete();
 
             return view('buy/complete');
@@ -99,12 +89,4 @@ class BuyController extends Controller
         return $this->index();
     }
 
-
-    // public function show()
-    // {
-
-    //     $user = Auth::user();
-
-    //     return view('buy/index', ['user' => $user]);
-    // }
 }
