@@ -34,16 +34,6 @@ class CartItemController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -61,29 +51,7 @@ class CartItemController extends Controller
         );
         return redirect('/')->with('flash_message','カートにアイテムを追加しました');
     }
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\CartItem  $cartItem
-     * @return \Illuminate\Http\Response
-     */
-    public function show(CartItem $cartItem,Item $item)
-    {
-
-        // return view('item/show',['item' => $item]);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\CartItem  $cartItem
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(CartItem $cartItem)
-    {
-        //
-    }
-
+   
     /**
      * Update the specified resource in storage.
      *

@@ -10,5 +10,5 @@ class Transaction extends Model
 
     protected $table = 'transaction';
     protected $guarded = array('id');
-    // protected $fillable = ['order_id','user_id', 'item_id', 'quantity'];
+    
 }
