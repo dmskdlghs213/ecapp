@@ -18,6 +18,8 @@ class BuyController extends Controller
     public function index()
     {
 
+        // $user = Auth::user()->get();
+
         //　カートのアイテム一覧を表示させる
         $cartitems = CartItem::select('cart_items.*', 'items.name', 'items.amount')
             ->where('user_id', Auth::id())
@@ -46,7 +48,7 @@ class BuyController extends Controller
             //     'user_id' => Auth::id(),
             //     'items_id' => $request('post')->id(),
 
-            // ]);
+            // ]); 
 
             Auth::user()->update(
                 [
@@ -65,14 +67,14 @@ class BuyController extends Controller
             $itemmounts = request('quantity');
 
             //配列から一件づつ取得するため繰り返し処理
-            foreach($itemmounts as $itemmount){
+            foreach ($itemmounts as $itemmount) {
                 $quantity = $itemmount;
             }
 
             // order_idの割り当て
             $transactions = request('order_id');
 
-            foreach($transactions as $transaction){
+            foreach ($transactions as $transaction) {
                 $order_id = $transaction;
             }
 
@@ -87,13 +89,22 @@ class BuyController extends Controller
                 $tr->save();
             }
 
-            
 
             CartItem::where('user_id', Auth::id())->delete();
 
             return view('buy/complete');
         }
+
         $request->flash();
         return $this->index();
     }
+
+
+    // public function show()
+    // {
+
+    //     $user = Auth::user();
+
+    //     return view('buy/index', ['user' => $user]);
+    // }
 }

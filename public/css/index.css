@@ -1,0 +1,398 @@
+@import url('https://fonts.googleapis.com/css?family=Kosugi+Maru&display=swap');
+
+
+body{
+    display: block;
+    max-width: 100%;
+}
+
+
+.message {
+    position: absolute;
+    z-index: 1;
+    width:100%;
+    margin:0 auto;
+    margin-top:180px;
+}
+
+.message h2{
+    color: white;
+    font-weight: bold;
+    font-size: 60px;
+    font-family: 'Kosugi Maru', sans-serif;
+    text-align: center;
+    text-shadow: 0 .18rem .1rem rgba(0,0,0,.5);
+}
+
+.message h4{
+    color: white;
+    font-size: 30px;
+    font-family: 'Kosugi Maru', sans-serif;
+    text-align: center;
+}
+
+
+.image {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 0 !important;
+    line-height: 0;
+  }
+
+  .main_image{
+    display: block;
+    margin: auto;
+    font-size: 0 !important;
+    line-height: 0;
+    width: 100%;
+    height: 500px;
+  }
+
+  .main_image.tra1 {
+    display: block;
+    margin: auto;
+    font-size: 0 !important;
+    line-height: 0;
+    animation-name: changeMainImage;
+    animation-duration: 28s;
+    animation-iteration-count: infinite;
+  }
+  .main_image.tra2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+   
+    /* // アニメーションプロパティ */
+    animation-name: changeMainImage;
+    animation-delay: 6.5s;
+    animation-duration: 28s;
+    animation-iteration-count: infinite;
+  }
+  .main_image.tra3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+   
+    /* // アニメーションプロパティ
+    // 2枚目以降はanimation-delayを設定して
+  　// アニメーション開始タイミングを遅らせる */
+    animation-name: changeMainImage;
+    animation-delay: 13s;
+    animation-duration: 28s;
+    animation-iteration-count: infinite;
+  }
+  
+/* keyframes */
+@keyframes changeMainImage {
+    0% {
+      opacity: 0;
+    }
+    5% {
+      opacity: 1;
+    }
+    20% {
+      opacity: 1;
+    }
+    30% {
+      opacity: 0.3;
+    }
+    33% {
+      opacity: 0.1;
+    }
+    35% {
+      opacity: 0;
+    }
+  }
+  @keyframes changeMainImageLast {
+    0% {
+      opacity: 0;
+    }
+    5% {
+      opacity: 1;
+    }
+    20% {
+      opacity: 1;
+    }
+    30% {
+      opacity: 1;
+    }
+    40% {
+      opacity: 0;
+    }
+  }
+
+
+  .row.justify-content-center.main{
+      margin-top:110px;
+  }
+
+  .card{
+      margin-top:35px;
+  }
+ 
+  .card-header a{
+      font-size:16px;
+      color:rgb(41, 93, 114);
+  }
+
+
+  .card-header a:hover{
+    color:#3366CC;
+   }
+
+  .card-body p {
+    font-size: 18px;
+   }
+
+  #dropmenu{
+    list-style-type: none;
+    width: 400px;
+    height: 60px;
+   margin-right:250px;
+    padding: 0;
+    background: rgb(41, 93, 114);
+    border-bottom: 5px solid #3366CC;
+    border-radius: 3px 3px 0 0;
+    z-index:1;
+  }
+  #dropmenu li{
+    position: relative;
+    width: 50%;
+    float: left;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  #dropmenu li a{
+    display: block;
+    margin: 0;
+    padding: 15px 0 11px;
+    color: #CCCCCC;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1;
+    text-decoration: none;
+  }
+  #dropmenu li ul{
+    list-style: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin: 0;
+      padding: 0;
+    border-radius: 0 0 3px 3px;
+  }
+  #dropmenu li:last-child ul{
+    left: -100%;
+    width: 100%
+  }
+  #dropmenu li ul li{
+    overflow: hidden;
+    width: 200%;
+    height: 0;
+    color: #fff;
+    -moz-transition: .2s;
+    -webkit-transition: .2s;
+    -o-transition: .2s;
+    -ms-transition: .2s;
+    transition: .2s;
+  }
+  #dropmenu li ul li a{
+    padding: 13px 15px;
+    background: rgb(41, 93, 114);
+    text-align: left;
+    font-size: 17px;
+    font-weight: normal;
+  }
+  #dropmenu li:hover > a{
+    background: rgb(41, 93, 114);
+    color: white;
+  }
+  #dropmenu > li:hover > a{
+    border-radius: 3px 3px 0 0;
+  }
+  #dropmenu li:hover ul li{
+    overflow: visible;
+    height: 38px;
+    border-top: 1px solid #3366CC;
+    border-bottom: 1px solid rgb(41, 93, 114);
+  }
+  #dropmenu li:hover ul li:first-child{
+    border-top: 0;
+  }
+  #dropmenu li:hover ul li:last-child{
+    border-bottom: 0;
+  }
+  #dropmenu li:hover ul li:last-child a{
+    border-radius: 0 0 3px 3px;
+  }
+
+
+  .copy-right{
+    margin-top:30px;
+  }
+
+  .copy-right p{
+      text-align: center;
+  }
+
+
+  .row.justify-content-center.page{
+      margin-top:50px;
+  }
+
+
+
+
+
+  @media (max-width: 750px){
+    .image {
+       display: none;
+        width: 100%;
+        
+      }
+    
+      .main_image{
+        display: none;
+        margin: auto;
+        width: 100%;
+        height: 500px;
+        
+      }
+    
+        .col-md-12 {
+         height: 300px;
+         border: none;
+         border-radius: none;
+      }
+
+      .message {
+        position: absolute;
+        z-index: 1;
+        width:100%;
+        margin:0 auto;
+        margin-top:90px;
+    }
+    
+    .message h2{
+        color: rgb(41, 93, 114);
+        font-weight: bold;
+        font-size: 26px;
+        font-family: 'Kosugi Maru', sans-serif;
+        text-align: center;
+        text-shadow: 0 .18rem .1rem rgba(0,0,0,.5);
+    }
+    
+    .message h4{
+        color: rgb(41, 93, 114);
+        font-size: 14px;
+        font-family: 'Kosugi Maru', sans-serif;
+        text-align: center;
+    }
+    
+    .row.justify-content-center.drop{
+        margin-left:15px;
+    }
+
+    #dropmenu{
+        list-style-type: none;
+        width: 200px;
+        height: 30px;
+        padding: 0;
+        background: rgb(41, 93, 114);
+        border-bottom: 3px solid #3366CC;
+        border-radius: 3px 3px 0 0;
+        z-index:1;
+      }
+      #dropmenu li{
+        position: relative;
+        width: 50%;
+        float: left;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+      #dropmenu li a{
+        display: block;
+        margin: 0;
+        padding: 15px 0 11px;
+        color: #CCCCCC;
+        font-size: 10px;
+        font-weight: bold;
+        line-height: 1;
+        text-decoration: none;
+      }
+      #dropmenu li ul{
+        list-style: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        margin: 0;
+          padding: 0;
+        border-radius: 0 0 3px 3px;
+      }
+      #dropmenu li:last-child ul{
+        left: -100%;
+        width: 100%
+      }
+      #dropmenu li ul li{
+        overflow: hidden;
+        width: 200%;
+        height: 0;
+        color: #fff;
+        -moz-transition: .2s;
+        -webkit-transition: .2s;
+        -o-transition: .2s;
+        -ms-transition: .2s;
+        transition: .2s;
+      }
+      #dropmenu li ul li a{
+        padding: 13px 15px;
+        background: rgb(41, 93, 114);
+        text-align: left;
+        font-size: 8px;
+        font-weight: normal;
+      }
+    
+      #dropmenu li:hover > a{
+        background: rgb(41, 93, 114);
+        color: white;
+      }
+      #dropmenu > li:hover > a{
+        border-radius: 3px 3px 0 0;
+      }
+      #dropmenu li:hover ul li{
+        overflow: visible;
+        height: 38px;
+        border-top: 1px solid #3366CC;
+        border-bottom: 1px solid rgb(41, 93, 114);
+      }
+      #dropmenu li:hover ul li:first-child{
+        border-top: 0;
+      }
+      #dropmenu li:hover ul li:last-child{
+        border-bottom: 0;
+      }
+      #dropmenu li:hover ul li:last-child a{
+        border-radius: 0 0 3px 3px;
+      }
+    
+      .row.justify-content-center.main{
+          margin-top:20px;
+      }
+
+
+
+
+}
+
+
+
+  
+

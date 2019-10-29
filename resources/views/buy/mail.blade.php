@@ -1,5 +1,5 @@
 <div>
-    これは{{ config('app.name', 'ecapp') }}のテストメールです。
+    これは{{ config('app.name', 'OmeC') }}のテストメールです。
 </div>
 <div>
     この度はご購入ありがとうございます。
